@@ -68,14 +68,12 @@ public class ActivityUser extends AppCompatActivity {
         editar = findViewById(R.id.btn1);
 
         capturarEditTexts();
-        Log.i("aki", "response.body()");
         apiUserInterface = APIClient.getClient().create(UserInterface.class);
 
         Call<List<User>> get = apiUserInterface.get();
         get.enqueue(new Callback<List<User>>() {
             @Override
             public void onResponse(Call<List<User>> call, Response<List<User>> response) {
-                Log.i("aki", "response.body()");
                 listUser = response.body();
 
                 for (User u : listUser) {
